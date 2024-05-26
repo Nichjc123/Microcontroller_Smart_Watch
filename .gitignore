@@ -52,4 +52,4 @@ Mkfile.old
 dkms.conf
 
 #DISPLAY templates
-display_templates.h
+display_templates.c
