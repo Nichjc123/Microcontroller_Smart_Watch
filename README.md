@@ -11,3 +11,15 @@ The display code in this project is a custom library specifically designed to in
 ## Bluetooth HID Device
 
 The Bluetooth HID media controller code in this project is a custom implementation that enables the ESP32 to function as a Bluetooth Human Interface Device (HID). This custom HID profile allows the smartwatch to communicate with paired devices and control media playback. The code handles the initialization of the Bluetooth stack, setting up the HID service, and managing the necessary HID reports. Functions are provided to send commands for play/pause, next track, previous track, and volume adjustments. By creating the Bluetooth HID profile from scratch, the project ensures precise and reliable media control functionality, seamlessly integrating with various Bluetooth-enabled devices for a smooth user experience.
+
+## WIFI integration
+
+WIP
+
+## Custom PCB Design
+
+WIP
+
+![Watch Image 1, MAY 2024](./images/may24-im1.HEIC "Watch #1 May '24")
+
+![Watch Image 2, MAY 2024](./images/may24-im2.HEIC "Watch #2 May '24")
