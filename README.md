@@ -20,6 +20,8 @@ WIP
 
 WIP
 
+## Images (Updated May '24)
+
 ![Watch Image 1, MAY 2024](./images/may24-im1.HEIC "Watch #1 May '24")
 
 ![Watch Image 2, MAY 2024](./images/may24-im2.HEIC "Watch #2 May '24")
