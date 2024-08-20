@@ -16,9 +16,30 @@ The Bluetooth HID media controller code in this project is a custom implementati
 
 WIP
 
-## Custom PCB Design
+## Schematic Design
 
-WIP
+![Schematic Final V1, AUG 2024](./images/schematicV1.pdf "Schematic PDF V1.0")
+
+Components 
+1. ESP32-WROOM 32UE (this version comes with an antenna)
+1. 220mAh Lithium Polymer Battery (3.7V)
+1. TP4056 charging board
+1. MCP1700T LDO Voltage Regulator
+1. 1.69 inch LCD module (ST7789V2 driver)
+1. USB to TTL serial converter for flashing
+1. Pushbuttons, headers, capacitors, resistors
+
+The schematic for the watch contains many sub systems that are designed to fulfill a specific functionality, some essential and some for ease of use.
+
+### Battery monitoring
+
+The battery monitoring circuit is very simple, the battery terminal voltage is stepped down and read with one of the ADC inputs of the ESP32.
+
+### Charging Circuit
+
+do last probs biggest 
+
+## PCB Design
 
 ## Images (Updated May '24)
 
