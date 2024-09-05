@@ -96,7 +96,7 @@ const int hid_media_descriptor_len = sizeof(hid_media_descriptor);
  *  FUNCTIONS
  ***********************************************/
 
-// send the buttons, change in x, and change in y
+// send the buttons
 void send_media_report(uint8_t* data)
 {
     uint8_t report_id;
@@ -106,14 +106,14 @@ void send_media_report(uint8_t* data)
 		report_id = 0;
 		report_size = 1;
     } else {
-		ESP_LOGE("send_mouse_rep", "ERROR invalid protocol mode");
+		ESP_LOGE("send_rep", "ERROR invalid protocol mode");
     }
 	vTaskDelay(50 / portTICK_PERIOD_MS);
 
 	uint8_t clear = 0x00;
 
 	//send control command
-	ESP_LOGI("send_mouse_rep", "SENDING CONTROL SIGNAL");
+	ESP_LOGI("send_rep", "SENDING CONTROL SIGNAL");
     esp_bt_hid_device_send_report(ESP_HIDD_REPORT_TYPE_INTRDATA, report_id, report_size, data);
 
 	//Clearing (raise key equivalent)
