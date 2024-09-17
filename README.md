@@ -73,6 +73,13 @@ Adding an RC filter for switch debouncing, for the user operated switches to ens
 
 WIP
 
+## Images (Updated Sep '24)
+
+The assembled PCB with a new 240x280 pixel screen, battery level indicator, and media control icons.
+
+![Watch Image 3, AUG 2024](./images/sep24-im1.png "Watch #3 Sep '24")
+
+
 ## Images (Updated May '24)
 
 ![Watch Image 1, MAY 2024](./images/may24-im1.HEIC "Watch #1 May '24")
