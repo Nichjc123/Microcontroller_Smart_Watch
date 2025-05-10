@@ -1,4 +1,4 @@
-# ESP32 Microcontroller Smartwatch
+# ESP32-C3 SoC Smartwatch
 
 This project is a custom smartwatch using the ESP32 microcontroller. The watch features a 1.44” IPS TFT display, and media control via Bluetooth wifi integration and weather notificaitons are currently under development. The entire project was developed from scratch, without relying on external libraries (except for the ones provided by ESP).
 
