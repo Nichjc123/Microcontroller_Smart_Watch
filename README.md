@@ -18,6 +18,66 @@ WIP
 
 ## Schematic Design
 
+### Hardware Version 2.0 (April 2025)
+![Schematic Final V2, APRIL 2025](./images/schematicV2.png "Schematic PDF V2.0")
+![Schematic Final V2, APRIL 2025](./images/schematicV2-2.png "Schematic PDF V2.0")
+
+## Hardware Version 2.0 Updates
+
+One of the primary challenges with V1.0 was the overall size and the number of external components required beyond the main PCB - specifically the USB-UART converter for programming and the external LiPo battery management board. Version 2.0 addresses these issues with a complete redesign that integrates all essential components onto a single PCB that's actually smaller than the LCD footprint itself.
+
+### 1. Load Sharing Circuit
+
+The new load sharing circuit provides intelligent power path management between the micro USB input and the LiPo battery. This implementation offers several critical advantages:
+
+- **Seamless Power Switching**: Automatically switches between USB and battery power without interruption
+- **Battery Life Extension**: When USB is connected, the circuit powers the system directly while simultaneously charging the battery, reducing unnecessary charge/discharge cycles
+- **Safe Charging While Operating**: Allows the watch to remain fully functional during charging
+- **Voltage Stability**: Maintains consistent 3.3V output regardless of power source or battery charge level
+
+### 2. Integrated USB-to-Serial Programming
+
+Version 2.0 eliminates the need for external USB-UART converters by integrating the serial programming interface directly with the micro USB port:
+
+- **Single Cable Solution**: One micro USB cable handles both charging and programming
+- **Auto-Reset Circuit**: Implements DTR/RTS auto-reset functionality for hands-free firmware uploads
+- **Direct Serial Monitor Access**: Built-in serial debugging without additional hardware
+
+### 3. On-board Li-Ion Charging IC (MCP73831T)
+
+The MCP73831T replaces the external TP4056 module, providing a more integrated and safer charging solution:
+
+- **Thermal Regulation**: Automatically reduces charge current if chip temperature exceeds safe limits
+- **Automatic Recharge**: Initiates new charge cycle when battery drops below recharge threshold
+- **Preconditioning**: Safely recovers deeply discharged batteries with trickle charge
+- **Reverse Discharge Protection**: Prevents battery discharge through the charge pin
+
+### 4. ESP32-C3-MINI Module
+
+The transition to the ESP32-C3-MINI represents a significant advancement in both miniaturization and capability:
+
+**Physical Advantages:**
+- **Ultra-Compact**: 13.2×16.6×2.4mm - approximately 60% smaller than the WROOM-32UE
+- **Integrated Antenna**: High-performance PCB antenna within the module footprint
+- **Reduced Component Count**: Fewer external components required
+
+**Technical Improvements:**
+- **Native USB**: Built-in USB Serial/JTAG controller eliminates need for external USB-UART bridge
+- **Peripheral Set**: 22 programmable GPIOs, 2× 12-bit ADCs, multiple timers
+- **Connectivity Features**: Maintains 802.11 b/g/n support and Bluetooth 5.0 with LE support
+
+
+### Design Impact
+
+These hardware updates collectively achieve:
+- **40% PCB size reduction** compared to V1.0
+- **Improved user experience** with single-cable operation
+- **Better power efficiency** for extended battery life
+- **Professional appearance** suitable for a consumer wearable device
+
+The V2.0 hardware platform provides a solid foundation for future software features while maintaining the project's philosophy of custom implementation and deep hardware control.## Hardware Version 2.0 Updates
+
+### Hardware Version 1.0 (August 2024)
 ![Schematic Final V1, AUG 2024](./images/schematicV1.png "Schematic PDF V1.0")
 
 Components 
@@ -45,9 +105,18 @@ The flashing circuit facilitates firmware updates and debugging for the ESP32. I
 
 ## PCB Design
 
-![PCB Final V1 front, AUG 2024](./images/pcb_front.png "PCB Final V1 front")
+### Hardware V2.0
+<div style="display: flex; justify-content: center; gap: 10px;">
+  <img src="./images/pcb3dv2.png" width="400px">
+  <img src="./images/pcb3dv2-2.png" width="400px">
+</div>
 
-![PCB Final V1 back, AUG 2024](./images/pcb_back.png "PCB Final V1 back")
+The V2.0 PCB layout achieves significant space efficiency through careful component placement and routing optimization. Strategic test points have been added for critical signals (3.3V, GND, TX/RX, GPIO0) to facilitate debugging during development. Additionally, the direct battery solder connections have been replaced with a JST PH 2.0mm header, enabling easy battery replacement and safer prototyping. These improvements, combined with modular grouping of subsystems, result in a cleaner, more maintainable design that's both development-friendly and suitable for final production.
+
+### Hardware V1.0
+<div style="display: flex; justify-content: center; gap: 10px;">
+  <img src="./images/pcb_front.png" width="500px">
+</div>
 
 Here is V1 of the PCB for the watch,
 
@@ -73,15 +142,28 @@ Adding an RC filter for switch debouncing, for the user operated switches to ens
 
 WIP
 
+## Images (Updated April '25)
+
+Here is the assembled V2.0 of the watch and a comparison to V1 to see how much the PCBs differ in size.
+
+<div style="display: flex; justify-content: center; gap: 10px;">
+ <img src="./images/apr25-im2.png" width="400px" alt="Watch #4 Apr '25">
+ <img src="./images/apr25-im1.png" width="600px" alt="Watch #5 Apr '25">
+</div>
+
 ## Images (Updated Sep '24)
 
 The assembled PCB with a new 240x280 pixel screen, battery level indicator, and media control icons.
 
-![Watch Image 3, AUG 2024](./images/sep24-im1.png "Watch #3 Sep '24")
-
+<div style="display: flex; justify-content: center;">
+ <img src="./images/sep24-im1.png" width="500px" alt="Watch #3 Sep '24">
+</div>
 
 ## Images (Updated May '24)
 
-![Watch Image 1, MAY 2024](./images/may24-im1.HEIC "Watch #1 May '24")
+These images are from when I was testing the first versions of my display library with an ESP32 dev board and LCD module.
 
-![Watch Image 2, MAY 2024](./images/may24-im2.HEIC "Watch #2 May '24")
+<div style="display: flex; justify-content: center; gap: 10px;">
+ <img src="./images/may24-im1.HEIC" width="400px" alt="Watch #1 May '24">
+ <img src="./images/may24-im2.HEIC" width="400px" alt="Watch #2 May '24">
+</div>
